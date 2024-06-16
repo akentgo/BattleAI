@@ -17,5 +17,3 @@ while True: # An infinite loop to keep the game running
 		if event.type == pygame.QUIT: #It checks if current event is quit
 			pygame.quit()
 			sys.exit()
-
-#Next I need to make a bigger screen and split it down the middle 
