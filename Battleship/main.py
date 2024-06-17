@@ -1,19 +1,24 @@
 import pygame
 import sys
+from map import Map
 
 pygame.init() #we need to initialize the instance
-screen = pygame.display.set_mode((1200, 600)) #We make a window
+screen = pygame.display.set_mode((1200, 598)) #We make a window
 screen.fill((128,128,128)) #Fill the screen with gray
 
+map_instance = Map()
+clock = pygame.time.Clock()
 
-line_color = (0,0,0) # first we store the color for the line and the width of said line
-line_width = 5
-center_x = screen.get_width() // 2 # If we resize the screen we need to adjust where the line would be this is why we use this variable
-# Using // 2 is a special division that removes the decimal number and rouns down to the nearest whole number
-pygame.draw.line(screen, line_color, (center_x, 0), (center_x, screen.get_height()), line_width)
+'''print(map_instance) THE MAP IS STORED OK
+for row in map_instance.map:
+	print(' '.join(row))'''
+map_instance.paint_Map(screen)
 pygame.display.flip()
 while True: # An infinite loop to keep the game running
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT: #It checks if current event is quit
 			pygame.quit()
 			sys.exit()
+	clock.tick(60)
+if __name__ == "__main__":
+	main()
